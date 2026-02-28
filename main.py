@@ -12,14 +12,22 @@ while b != a:
 
 # 2.Word Scramble
 import random
+
 a = ['python', 'java', 'selenium']
 b = random.choice(a)     # original word
-c = b[-1] + b[1:-1] + b[0]     #scrambling using slicing
-print("Unscramble:", c)
-d = ""
-while d != b:
-    d = input("Enter word: ")
-    if d == b:
+c = ""   # even letters
+d = ""   # odd letters
+for i in range(len(b)):
+    if i % 2 == 0:
+        c = c + b[i]
+    else:
+        d = d + b[i]
+e = d + c   # join in different order
+print("Unscrabled word:", e)
+f = ""
+while f != b:
+    f = input("Enter word: ")
+    if f == b:
         print("Correct!")
     else:
         print("Wrong, try again")
